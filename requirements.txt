@@ -1,0 +1,13 @@
+pandas
+polars
+requests
+beautifulsoup4
+scrapy
+pymongo
+redis
+boto3
+psycopg2-binary
+sqlalchemy
+pytest
+kafka-python
+pyspark

@@ -1,0 +1,24 @@
+# Ignore all .txt files
+*.txt
+
+# Except requirements.txt
+!requirements.txt
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment
+venv/
+.env/

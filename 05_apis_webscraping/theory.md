@@ -1,4 +1,4 @@
-# Section 5: Working with APIs and Web Scraping (Theory)
+# Section 5: Working with APIs and Web Scraping
 
 ## Overview
 APIs and web scraping let you collect data from the web. Understanding protocols, tools, and ethics is essential for data engineers.
@@ -31,6 +31,13 @@ print(resp.json())
 - JSON: `resp.json()`, `json.loads()`
 - XML: `xml.etree.ElementTree`, `BeautifulSoup('xml')`
 
+Here is an example of parsing JSON:
+```python
+import json
+parsed = json.loads(resp.text)
+print(parsed)
+```
+
 ## 6. Web Scraping
 - Use when no API is available
 - Always check robots.txt and terms of service
@@ -39,8 +46,10 @@ print(resp.json())
 ## 7. BeautifulSoup Basics
 ```python
 from bs4 import BeautifulSoup
-soup = BeautifulSoup('<html>...</html>', 'html.parser')
-titles = soup.find_all('h1')
+html = '<html><h1>Title</h1></html>'
+soup = BeautifulSoup(html, 'html.parser')
+
+print(soup.h1.text)
 ```
 
 ## 8. Scrapy and Selenium

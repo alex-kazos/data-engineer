@@ -1,4 +1,4 @@
-# Section 3: SQL for Data Engineers (Theory)
+# Section 3: SQL for Data Engineers
 
 ## Overview
 SQL (Structured Query Language) is the universal language for querying and manipulating relational databases. Every data engineer must be fluent in SQL.
@@ -17,13 +17,57 @@ SQL (Structured Query Language) is the universal language for querying and manip
 - **LIMIT:** Restrict number of results
 
 ```sql
-SELECT name, age FROM users WHERE age > 18 ORDER BY age DESC LIMIT 10;
+SELECT 
+    name, 
+    age 
+FROM 
+    users 
+WHERE 
+    age > 18 
+ORDER BY 
+    age DESC 
+LIMIT 
+    10;
 ```
 
 ## 3. Filtering, Sorting, Aggregating
 - WHERE: `... WHERE col = 'value'`
 - ORDER BY: `... ORDER BY col ASC|DESC`
 - Aggregates: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`
+
+### Filtering Rows
+```sql
+SELECT 
+    name,
+    salary 
+FROM 
+    employees 
+WHERE 
+    salary > 50000;
+```
+
+### Sorting Results
+```sql
+SELECT 
+    name, 
+    salary 
+FROM 
+    employees 
+ORDER BY 
+    salary DESC;
+```
+
+### Aggregation
+```sql
+SELECT 
+    department, 
+    AVG(salary) 
+FROM 
+    employees 
+GROUP BY 
+    department;
+```
+
 
 ## 4. JOINs
 - **INNER JOIN:** Only matching rows
@@ -33,8 +77,12 @@ SELECT name, age FROM users WHERE age > 18 ORDER BY age DESC LIMIT 10;
 - **CROSS JOIN:** Cartesian product
 
 ```sql
-SELECT a.*, b.* FROM a
-INNER JOIN b ON a.id = b.id
+SELECT 
+    a.*, b.* 
+FROM 
+    a
+INNER JOIN 
+    b ON a.id = b.id
 ```
 
 ## 5. GROUP BY, HAVING, Aggregates
@@ -42,7 +90,15 @@ INNER JOIN b ON a.id = b.id
 - HAVING filters groups after aggregation
 
 ```sql
-SELECT dept, COUNT(*) FROM employees GROUP BY dept HAVING COUNT(*) > 5;
+SELECT 
+    dept, 
+    COUNT(*) 
+FROM 
+    employees 
+GROUP BY 
+    dept 
+HAVING 
+    COUNT(*) > 5;
 ```
 
 ## 6. Window Functions & Subqueries
@@ -50,7 +106,12 @@ SELECT dept, COUNT(*) FROM employees GROUP BY dept HAVING COUNT(*) > 5;
 - **Subquery:** Query inside another query
 
 ```sql
-SELECT name, salary, RANK() OVER (ORDER BY salary DESC) FROM employees;
+SELECT 
+    name, 
+    salary, 
+    RANK() OVER (ORDER BY salary DESC) 
+FROM 
+    employees;
 ```
 
 ## 7. Writing Efficient Queries
@@ -65,6 +126,7 @@ SELECT name, salary, RANK() OVER (ORDER BY salary DESC) FROM employees;
 
 ```python
 import sqlite3
+
 conn = sqlite3.connect('db.sqlite3')
 cursor = conn.cursor()
 cursor.execute('SELECT * FROM table')

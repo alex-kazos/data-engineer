@@ -1,4 +1,4 @@
-# Section 2: Data Manipulation with Pandas & Polars (Theory)
+# Section 2: Data Manipulation with Pandas & Polars
 
 ## Overview
 Pandas and Polars are powerful Python libraries for data manipulation and analysis. Pandas is the de facto standard for tabular data; Polars is a modern, high-performance alternative.

@@ -1,4 +1,4 @@
-# Section 7: Data Modeling & Warehouse Concepts (Theory)
+# Section 7: Data Modeling & Warehouse Concepts
 
 ## Overview
 Data modeling and warehouse design are foundational for scalable, performant analytics.
@@ -16,6 +16,42 @@ Data modeling and warehouse design are foundational for scalable, performant ana
 ## 3. Fact and Dimension Tables
 - **Fact:** Quantitative data (sales, clicks, etc.)
 - **Dimension:** Qualitative context (date, product, user)
+
+Here is an example of a star schema:
+```sql
+-- Fact table example
+CREATE TABLE sales (
+    sale_id SERIAL PRIMARY KEY,
+    date_id INT,
+    product_id INT,
+    amount FLOAT
+);
+
+-- Dimension table example
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    category VARCHAR(100)
+);
+```
+
+Here is an example of a snowflake schema:
+```sql
+-- Fact table example
+CREATE TABLE sales (
+    sale_id SERIAL PRIMARY KEY,
+    date_id INT,
+    product_id INT,
+    amount FLOAT
+);
+
+-- Dimension table example
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    category VARCHAR(100)
+);
+```
 
 ## 4. Normalization & Denormalization
 - **Normalization:** Reduce redundancy, improve integrity

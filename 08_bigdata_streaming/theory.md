@@ -1,4 +1,4 @@
-# Section 8: Big Data & Streaming (Advanced) (Theory)
+# Section 8: Big Data & Streaming
 
 ## Overview
 Big data tools allow you to process massive, fast, and varied datasets at scale. Streaming enables real-time analytics.
@@ -18,19 +18,52 @@ Big data tools allow you to process massive, fast, and varied datasets at scale.
 - RDDs: Low-level, immutable distributed collections
 - DataFrames: High-level, schema-aware tables
 - Transformations (lazy), actions (trigger computation)
+
 - Example:
+
+### 3.1. PySpark Basics
 ```python
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.getOrCreate()
 df = spark.read.csv('data.csv', header=True)
-df.groupBy('col').count().show()
+df.show()
 ```
+
+---
+
+### 3.2 Transformations and Actions
+```python
+# Transformation
+filtered = df.filter(df['value'] > 10)
+# Action
+filtered.count()
+```
+
+---
+
+### 3.3 GroupBy and Aggregation
+```python
+result = df.groupBy('category').count()
+result.show()
+```
+
 
 ## 4. Stream Processing
 - **Kafka:** Messaging system for ingesting streams
 - **Apache Beam:** Unified batch/stream, Python SDK
 - **Flink:** Low-latency, high-throughput streaming
 - Use for fraud detection, IoT, real-time dashboards
+
+### 4.1 Streaming with Kafka
+```python
+from kafka import KafkaProducer, KafkaConsumer
+
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer.send('topic', b'data')
+consumer = KafkaConsumer('topic', bootstrap_servers='localhost:9092')
+for msg in consumer:
+    print(msg.value)
+```
 
 ## 5. Integrating Python
 - PySpark for Spark

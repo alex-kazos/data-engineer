@@ -1,4 +1,4 @@
-# Section 10: Real-World Projects (Theory)
+# Section 10: Real-World Projects
 
 ## Overview
 Real-world projects bring together all data engineering concepts into practical, impactful solutions.

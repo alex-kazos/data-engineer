@@ -1,4 +1,4 @@
-# Section 6: Databases and Storage (Theory)
+# Section 6: Databases and Storage
 
 ## Overview
 Data engineers must work with a variety of storage systems: relational, NoSQL, and cloud object stores.
@@ -10,16 +10,49 @@ Data engineers must work with a variety of storage systems: relational, NoSQL, a
 - Schema, primary/foreign keys
 - Examples: PostgreSQL, MySQL, SQLite
 
+Here is an example of how to connect to a PostgreSQL database and execute a query:
+```python
+import psycopg2
+
+conn = psycopg2.connect(dbname='test', user='user', password='pass')
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM users')
+rows = cursor.fetchall()
+```
+
+
 ## 2. NoSQL Databases
 - **Document:** MongoDB (JSON-like docs)
 - **Key-Value:** Redis
 - **Wide-column, Graph:** Cassandra, Neo4j
 - Use for unstructured, high-velocity, or flexible data
 
+Here is an example of how to connect to a MongoDB database and execute a query:
+```python
+# MongoDB
+from pymongo import MongoClient
+client = MongoClient()
+db = client.test
+db.users.find_one()
+
+# Redis
+import redis
+r = redis.Redis()
+r.set('key', 'value')
+print(r.get('key'))
+```
+
 ## 3. Cloud Storage
 - **AWS S3:** Buckets, objects, versioning
 - **GCS/Azure Blob:** Similar concepts
 - Used for data lakes, backups, ML pipelines
+
+Here is an example of how to connect to an S3 bucket and upload a file:
+```python
+import boto3
+s3 = boto3.client('s3')
+s3.upload_file('local.txt', 'bucket', 'remote.txt')
+```
 
 ## 4. Connecting from Python
 - **PostgreSQL:** `psycopg2`, `SQLAlchemy`

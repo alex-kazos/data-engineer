@@ -1,4 +1,4 @@
-# Section 1: Python Fundamentals for Data Engineering (Theory)
+# Section 1: Python Fundamentals for Data Engineering
 
 ## Overview
 This section covers the foundational Python skills every data engineer needs.
